@@ -52,6 +52,12 @@
      <Compile Include="Assets\Scripts\waffe.cs" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{2107DF95-9C1C-609E-0E03-2447AE2C9CE6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{07FCDA7F-551A-8850-452C-A48700EAA67F}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 	   Other similar extension points exist, see Microsoft.Common.targets.
