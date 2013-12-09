@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\health.cs" />
+     <Compile Include="Assets\Scripts\waffe.cs" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
