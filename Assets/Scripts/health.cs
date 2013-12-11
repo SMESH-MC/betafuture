@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerHealth : MonoBehaviour
+public class health : MonoBehaviour
 {	
-	public float health = 100f;					// The player's health.
+	public float phealth = 100f;					// The player's health.
 	public float repeatDamagePeriod = 2f;		// How frequently the player can be damaged.
 	public float hurtForce = 10f;				// The force with which the player is pushed when hurt.
 	public float damageAmount = 10f;			// The amount of damage to take when enemies touch the player
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 			if (Time.time > lastHitTime + repeatDamagePeriod) 
 			{
 				// ... and if the player still has health...
-				if(health > 0f)
+				if(phealth > 0f)
 				{
 					// ... take damage and reset the lastHitTime.
 					TakeDamage(col.transform); 
@@ -85,7 +85,7 @@ public class PlayerHealth : MonoBehaviour
 		rigidbody2D.AddForce(hurtVector * hurtForce);
 
 		// Reduce the player's health by 10.
-		health -= damageAmount;
+		phealth -= damageAmount;
 
 		// Update what the health bar looks like.
 		UpdateHealthBar();
@@ -99,9 +99,9 @@ public class PlayerHealth : MonoBehaviour
 	public void UpdateHealthBar ()
 	{
 		// Set the health bar's colour to proportion of the way between green and red based on the player's health.
-		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - health * 0.01f);
+		healthBar.material.color = Color.Lerp(Color.green, Color.red, 1 - phealth * 0.01f);
 
 		// Set the scale of the health bar to be proportional to the player's health.
-		healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
+		healthBar.transform.localScale = new Vector3(healthScale.x * phealth * 0.01f, 1, 1);
 	}
 }
