@@ -13,6 +13,15 @@ public class PlayerPhysics : MonoBehaviour {
 	//Zentrum des Colliders
 	private Vector3 center;
 
+	private Vector3 originalSize;
+	private Vector3 originalCenter;
+	private float colliderScale;
+
+	//Anzahl der Rays fuer Y-Achsen Kollision
+	private int collisionDivisionX = 3;
+	//Anzahl der Rays fuer X-Achsen Kollision
+	private int collisionDivisionY = 10;
+
 	//Abstand zum Boden fuer Raycast
 	private float skin = .005f;
 
@@ -27,8 +36,11 @@ public class PlayerPhysics : MonoBehaviour {
 
 	void Start() {
 		collider = GetComponent<BoxCollider>();
-		size = collider.size;
-		center = collider.center;
+		colliderScale = transform.localScale.x;
+
+		originalSize = collider.size;
+		originalCenter = collider.center;
+		SetCollider(originalSize, originalCenter);
 	}
 
 	//Bewege den Spieler
@@ -41,12 +53,12 @@ public class PlayerPhysics : MonoBehaviour {
 		grounded = false;
 
 		//Raycast in Y-Richtung
-		for(int i = 0; i <3; i++) {
+		for(int i = 0; i < collisionDivisionX; i++) {
 			//Richtung der Rays
 			float direction = Mathf.Sign(deltaY);
 
 			//Baut die Rays nacheinander unter/ueber dem Playerobjekt auf
-			float x = (playerPosition.x + center.x - size.x/2) + size.x/2 * i; ;
+			float x = (playerPosition.x + center.x - size.x/2) + size.x/(collisionDivisionX -1) * i; ;
 			float y = playerPosition.y + center.y + size.y/2 * direction;
 			ray = new Ray(new Vector2(x,y), new Vector2(0, direction));
 
@@ -71,10 +83,10 @@ public class PlayerPhysics : MonoBehaviour {
 		moveStopped = false;
 
 		//Raycast in X-Richtung
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < collisionDivisionY; i++) {
 			float direction = Mathf.Sign(deltaX);
 			float x = playerPosition.x + center.x + size.x/2 * direction;
-			float y = playerPosition.y + center.y - size.y/2 + size.x/2 * i;
+			float y = playerPosition.y + center.y - size.y/2 + size.y/(collisionDivisionY -1) * i;
 			
 			ray = new Ray(new Vector2(x,y), new Vector2(direction, 0));
 			
@@ -95,10 +107,33 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 		}
 
+		Vector3 playerDirection = new Vector3(deltaX,deltaY);
+		Vector3 origin = new Vector3(playerPosition.x + center.x + size.x/2 * Mathf.Sign(deltaX),playerPosition.y + center.y + size.y/2 * Mathf.Sign(deltaY)); 
+
+		//Raycast fuer Diagonale
+		if(!moveStopped && !grounded) {
+			ray = new Ray(origin, playerDirection.normalized);
+
+			Debug.DrawRay(ray.origin, ray.direction);
+			if(Physics.Raycast(ray, Mathf.Sqrt(deltaX * deltaX + deltaY * deltaY), collisionMask)) {
+				grounded = true;
+				deltaY = 0;
+			}
+		}
+
+
 
 		Vector2 finalTransform = new Vector2(deltaX, deltaY);
 
 		//Bewege das Playerobjekt
 		transform.Translate(finalTransform);
+	}
+	
+	public void SetCollider(Vector3 newSize, Vector3 newCenter) {
+		collider.size = newSize;
+		collider.center = newCenter;
+
+		size = newSize * colliderScale;
+		center = newCenter * colliderScale;
 	}
 }
