@@ -9,14 +9,22 @@ public class health : MonoBehaviour
 	private GUITexture healthBar;				// Reference to the sprite renderer of the health bar.
 	private GUIText healthBarText;
 
+	private int onScreenX;
+	private int onScreenY;
+
 	private GameObject player;
 
-	void Awake (){
+	void Awake () {
+		onScreenX = Screen.width / 100; // 1 % der Weite
+		onScreenY = Screen.height - (Screen.height / 10); // 90 % der Hoehe
+
 		healthBar = GameObject.Find("HealthBar").GetComponent<GUITexture>();
 		healthBar.color = Color.green;
+		healthBar.pixelInset = new Rect (onScreenX,onScreenY,200,25);
 
 		healthBarText = GameObject.Find("HealthBarText").GetComponent<GUIText>();
 		healthBarText.text = phealth.ToString();
+		healthBarText.pixelOffset = new Vector2 (onScreenX * 2, onScreenY);
 
 		player = GameObject.FindWithTag("Player");
 	}
@@ -41,7 +49,7 @@ public class health : MonoBehaviour
 		healthBar.color = Color.Lerp(Color.green, Color.red, 1 - phealth * 0.01f);
 
 		// Set the scale of the health bar to be proportional to the player's health.
-		healthBar.pixelInset = new Rect(0, 0 , (healthBar.pixelInset.width * phealth * 0.01f) + 10, 25);
+		healthBar.pixelInset = new Rect(onScreenX, onScreenY, (healthBar.pixelInset.width * phealth * 0.01f) + 1, 25);
 
 		healthBarText.text = phealth.ToString();
 	}
