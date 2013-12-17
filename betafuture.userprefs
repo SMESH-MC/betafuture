@@ -1,10 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DoorScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\health.cs">
     <Files>
-      <File FileName="betafuture.sln" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\health.cs" Line="30" Column="27" />
       <File FileName="Assets\DoorScript.cs" Line="18" Column="4" />
       <File FileName="Assets\Scripts\PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\pausemenu.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
