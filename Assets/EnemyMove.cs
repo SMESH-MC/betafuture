@@ -8,8 +8,8 @@ public class EnemyMove : MonoBehaviour {
 	public float acceleration = 10;
 	public float jumpHeight = 0;
 	
-	private int i = 0;
-	private int bewegungsweite = 5;
+	private int i;
+	private int bewegungsweite = 3;
 	private bool left = true;
 	//Instanzierung des PlayerPhysics-Script
 	private PlayerPhysics playerPhysics;
@@ -20,6 +20,7 @@ public class EnemyMove : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		i = 0;
 		playerPhysics = GetComponent<PlayerPhysics>();
 	}
 	
