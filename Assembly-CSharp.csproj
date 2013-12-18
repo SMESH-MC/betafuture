@@ -39,15 +39,16 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Programmierung/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>G:/Programme/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Programmierung/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>G:/Programme/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\DoorScript.cs" />
      <Compile Include="Assets\EnemyMove.cs" />
+     <Compile Include="Assets\LevelChangerFixed.cs" />
      <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
