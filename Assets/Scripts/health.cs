@@ -39,7 +39,7 @@ public class health : MonoBehaviour
 		}
 	}
 
-	void TakeDamage (){
+	public void TakeDamage (){
 		phealth -= damageAmount;
 		UpdateHealthBar();
 	}
