@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\health.cs" />
      <Compile Include="Assets\Scripts\waffe.cs" />
      <Compile Include="Assets\hitPlayer.cs" />
-     <Compile Include="Assets\move.cs" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
