@@ -14,18 +14,13 @@ function Awake () {
 function Update () {
 	if(controller.isGrounded){
 		dir.x = Input.GetAxis("Horizontal") * speed;
-		
 		if(Input.GetButtonDown("Jump")){
 			dir.y = jumpPower;
 		}
-		else {
-			dir.y = -1;
-		}
 	}
 	else {
-		dir.y = dir.y - (gravity * Time.deltaTime);
-		dir.x = dir.x + (Input.GetAxis("Horizontal") * airControl * Time.deltaTime);
+		dir.y = dir.y - gravity;
+		dir.x = (Input.GetAxis("Horizontal") * speed );
 	}
 	controller.Move(dir * Time.deltaTime);
-
 }
