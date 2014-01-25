@@ -31,7 +31,7 @@ public class health : MonoBehaviour
 
 	void Update() {
 		if (Input.GetButtonDown("HurtPlayer")){
-			TakeDamage();
+			TakeDamage(damageAmount);
 		}
 
 		if(phealth <= 0) {
@@ -39,8 +39,8 @@ public class health : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage (){
-		phealth -= damageAmount;
+	public void TakeDamage (float damage){
+		phealth -= damage;
 		UpdateHealthBar();
 	}
 

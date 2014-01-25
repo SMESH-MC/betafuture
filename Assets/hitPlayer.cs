@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class hitPlayer : MonoBehaviour {
+	public float damageAmount = 10.0f;
 
 	//private health playerhealth;
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class hitPlayer : MonoBehaviour {
 		if(playerCollider.tag == "Player") {
 			GameObject player = GameObject.Find("Player");
 			health playerHealth = (health) player.GetComponent(typeof(health));
-			playerHealth.TakeDamage();
+			playerHealth.TakeDamage(damageAmount);
 			//playerhealth.TakeDamage();
 		}
 	}

@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\health.cs" />
      <Compile Include="Assets\Scripts\waffe.cs" />
      <Compile Include="Assets\ShootingScript.cs" />
+     <Compile Include="Assets\bulletDestroy.cs" />
      <Compile Include="Assets\hitPlayer.cs" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
   </ItemGroup>
