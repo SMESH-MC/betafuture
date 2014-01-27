@@ -4,9 +4,9 @@ using System.Collections;
 public class health : MonoBehaviour
 {	
 	public float maxhealth = 100f;					// The player's health.
-	private float currentHealth;
+	public float currentHealth;
 	public float maxShield = 100f;
-	private float currentShield;
+	public float currentShield;
 	public float damageAmount = 8f;			// The amount of damage to take when enemies touch the player
 
 	private GUITexture healthBar;				// Reference to the sprite renderer of the health bar.
@@ -91,5 +91,6 @@ public class health : MonoBehaviour
 		//healthBar.transform.localScale = new Vector3(healthScale.x * health * 0.01f, 1, 1);
 
 		healthBarText.text = currentHealth.ToString();
+		Debug.Log("Healthbars updated");
 	}
 }

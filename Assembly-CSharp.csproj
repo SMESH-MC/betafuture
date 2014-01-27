@@ -46,17 +46,18 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\DoorScript.cs" />
-     <Compile Include="Assets\LevelChangerFixed.cs" />
-     <Compile Include="Assets\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
+     <Compile Include="Assets\Scripts\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\LevelChangerFixed.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ShootingScript.cs" />
+     <Compile Include="Assets\Scripts\bulletScript.cs" />
      <Compile Include="Assets\Scripts\camera_lock.cs" />
+     <Compile Include="Assets\Scripts\enemyHealth.cs" />
      <Compile Include="Assets\Scripts\health.cs" />
+     <Compile Include="Assets\Scripts\hitPlayer.cs" />
      <Compile Include="Assets\Scripts\waffe.cs" />
-     <Compile Include="Assets\ShootingScript.cs" />
-     <Compile Include="Assets\bulletDestroy.cs" />
-     <Compile Include="Assets\hitPlayer.cs" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>

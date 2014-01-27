@@ -1,12 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\health.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\bulletDestroy.cs">
     <Files>
-      <File FileName="Assets\Scripts\health.cs" Line="43" Column="69" />
-      <File FileName="Assets\PlayerMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets\ShootingScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\hitPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets\bulletDestroy.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\bulletDestroy.cs" Line="33" Column="1" />
+      <File FileName="Assets\Scripts\health.cs" Line="65" Column="1" />
+      <File FileName="Assets\Scripts\hitPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets\enemyHealth.cs" Line="15" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
