@@ -11,10 +11,12 @@ public class EnemyMovement : MonoBehaviour {
 	public float moveDirection = 1;
 	public float speed  = 6.0f;
 	public float gravity = 9.81f;
+	public float moveLength = 25f;
 	public float distance = 5.0f;
 	public bool flipped = false;
 
 	void Awake () {
+		distance = moveLength;
 		controller = this.GetComponent<CharacterController>();
 		enemy = this.gameObject;
 	}
@@ -46,7 +48,7 @@ public class EnemyMovement : MonoBehaviour {
 		distance = distance - ((dirXOld - transform.position.x) * moveDirection);
 
 		if (distance <= 0) {
-			distance = 5.0f;
+			distance = moveLength;
 			moveDirection *= -1;
 		}
 	}
