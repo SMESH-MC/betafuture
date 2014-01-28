@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour {
 	private GameObject player;
 	private Vector3 dir  = Vector3.zero;
 
-
+	public float moveDirection = 1;
 	public float speed  = 6.0f;
 	public float gravity = 9.81f;
 	public float distance = 5.0f;
@@ -28,11 +28,11 @@ public class EnemyMovement : MonoBehaviour {
 		float dirXOld = dir.x;
 
 		if(controller.isGrounded){
-			dir.x = 1 * speed;
+			dir.x = moveDirection * speed;
 		}
 		else {
 			dir.y = dir.y - gravity;
-			dir.x = 1 * speed;
+			dir.x = moveDirection * speed;
 		}
 
 		if(dir.x > 0){
@@ -41,6 +41,12 @@ public class EnemyMovement : MonoBehaviour {
 			flipped = true;
 		} 
 		distance -= (dirXOld - dir.x);
+
+		if (distance == 0) {
+			distance = 5.0f;
+			moveDirection *= -1;
+		}
+
 		controller.Move(dir * Time.deltaTime);
 	}
 
