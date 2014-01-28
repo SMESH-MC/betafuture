@@ -13,9 +13,9 @@ public class EnemyMovement : MonoBehaviour {
 	public float viewField = 10.0f;
 	public bool seePlayer = false;
 
-	public float debugEnemyX = 0;
-	public float debugPlayerX = 0;
-	public float debugIsInView = 0;
+	//public float debugEnemyX = 0;
+	//public float debugPlayerX = 0;
+	//public float debugIsInView = 0;
 
 	public float moveDirection = 1;
 	public float speed  = 6.0f;
@@ -52,16 +52,24 @@ public class EnemyMovement : MonoBehaviour {
 			// sind auf selber Ebene
 			if (yDiv <= 6.0) {
 				if (!flipped) {
+					if ( posX > posPlayerX ) {
+						return false;
+					}
 					posX += viewField;
 					isInView = posPlayerX - posX;
-				} else {	//hier noch ein problem
+				} else {
+					if ( posX < posPlayerX ) {
+						return false;
+					}
 					posX -= viewField;
-					isInView = posX + posPlayerX;
+					isInView = posX - posPlayerX;
 				}
-			debugEnemyX = posX;
-			debugPlayerX = posPlayerX;
-			debugIsInView = isInView;
-				if ( isInView <= 0 ) {
+
+			//debugEnemyX = posX;
+			//debugPlayerX = posPlayerX;
+			//debugIsInView = isInView;
+
+			if ( isInView <= 0 ) {
 					return true;
 				}	
 			}
