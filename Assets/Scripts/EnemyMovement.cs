@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour {
 	}
 
 	void move() {
-		float dirXOld = dir.x;
+		float dirXOld = transform.position.x;
 
 		if(controller.isGrounded){
 			dir.x = moveDirection * speed;
@@ -40,14 +40,15 @@ public class EnemyMovement : MonoBehaviour {
 		} else if (dir.x < 0) {
 			flipped = true;
 		} 
-		distance -= (dirXOld - dir.x);
 
-		if (distance == 0) {
+		controller.Move(dir * Time.deltaTime);
+
+		distance = distance - ((dirXOld - transform.position.x) * moveDirection);
+
+		if (distance <= 0) {
 			distance = 5.0f;
 			moveDirection *= -1;
 		}
-
-		controller.Move(dir * Time.deltaTime);
 	}
 
 	void flipSide() {
