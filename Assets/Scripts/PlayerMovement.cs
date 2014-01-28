@@ -2,7 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 
-public class EnemyMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
 	private CharacterController controller;
 	private GameObject enemy;

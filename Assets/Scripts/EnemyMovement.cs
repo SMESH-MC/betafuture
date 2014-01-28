@@ -2,7 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 
-public class PlayerMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour {
 
 	private CharacterController controller;
 	private GameObject player;
@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed  = 6.0f;
 	public float gravity = 9.81f;
-	public float jumpPower = 5.0f;
+	public float distance = 5.0f;
 	public bool flipped = false;
 
 	void Awake () {
@@ -25,15 +25,14 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void move() {
+		float dirXOld = dir.x;
+
 		if(controller.isGrounded){
-			dir.x = Input.GetAxis("Horizontal") * speed;
-			if(Input.GetButtonDown("Jump")){
-				dir.y = jumpPower;
-			}
+			dir.x = distance * speed;
 		}
 		else {
 			dir.y = dir.y - gravity;
-			dir.x = (Input.GetAxis("Horizontal") * speed );
+			dir.x = distance * speed;
 		}
 
 		if(dir.x > 0){
@@ -41,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 		} else if (dir.x < 0) {
 			flipped = true;
 		} 
+		distance -= (dirXOld - dir.x);
 		controller.Move(dir * Time.deltaTime);
 	}
 
