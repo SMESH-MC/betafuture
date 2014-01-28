@@ -28,11 +28,11 @@ public class EnemyMovement : MonoBehaviour {
 		float dirXOld = dir.x;
 
 		if(controller.isGrounded){
-			dir.x = distance * speed;
+			dir.x = 1 * speed;
 		}
 		else {
 			dir.y = dir.y - gravity;
-			dir.x = distance * speed;
+			dir.x = 1 * speed;
 		}
 
 		if(dir.x > 0){
