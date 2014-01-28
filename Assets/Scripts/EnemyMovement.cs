@@ -2,14 +2,12 @@
 using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 
-public class EnemyMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
 	private CharacterController controller;
-	private GameObject enemy;
+	private GameObject player;
 	private Vector3 dir  = Vector3.zero;
 
-
-	public int moveWidth = 5;
 
 	public float speed  = 6.0f;
 	public float gravity = 9.81f;
@@ -18,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Awake () {
 		controller = this.GetComponent<CharacterController>();
-		enemy = this.gameObject;
+		player = this.gameObject;
 	}
 
 	void Update () {
@@ -29,6 +27,9 @@ public class EnemyMovement : MonoBehaviour {
 	void move() {
 		if(controller.isGrounded){
 			dir.x = Input.GetAxis("Horizontal") * speed;
+			if(Input.GetButtonDown("Jump")){
+				dir.y = jumpPower;
+			}
 		}
 		else {
 			dir.y = dir.y - gravity;
@@ -45,10 +46,10 @@ public class EnemyMovement : MonoBehaviour {
 
 	void flipSide() {
 		if (flipped){
-			enemy.transform.rotation = Quaternion.Euler(0, 180, 0);
+			player.transform.rotation = Quaternion.Euler(0, 180, 0);
 		}
 		else{
-			enemy.transform.transform.rotation = Quaternion.Euler(0, 0, 0);
+			player.transform.transform.rotation = Quaternion.Euler(0, 0, 0);
 		}
 	}
 }
