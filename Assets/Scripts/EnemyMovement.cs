@@ -5,7 +5,7 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour {
 
 	private CharacterController controller;
-	private GameObject player;
+	private GameObject enemy;
 	private Vector3 dir  = Vector3.zero;
 
 	public float moveDirection = 1;
@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Awake () {
 		controller = this.GetComponent<CharacterController>();
-		player = this.gameObject;
+		enemy = this.gameObject;
 	}
 
 	void Update () {
@@ -52,10 +52,10 @@ public class EnemyMovement : MonoBehaviour {
 
 	void flipSide() {
 		if (flipped){
-			player.transform.rotation = Quaternion.Euler(0, 180, 0);
+			enemy.transform.rotation = Quaternion.Euler(0, 180, 0);
 		}
 		else{
-			player.transform.transform.rotation = Quaternion.Euler(0, 0, 0);
+			enemy.transform.transform.rotation = Quaternion.Euler(0, 0, 0);
 		}
 	}
 }
