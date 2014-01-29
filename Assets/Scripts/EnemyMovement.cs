@@ -13,6 +13,10 @@ public class EnemyMovement : MonoBehaviour {
 	public float viewField = 10.0f;
 	public bool seePlayer = false;
 
+	private health playerHealth;	
+	public float damage = 10;
+	private int nextSchuss = 0;
+
 	//public float debugEnemyX = 0;
 	//public float debugPlayerX = 0;
 	//public float debugIsInView = 0;
@@ -26,6 +30,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	void Awake () {
 		player = GameObject.Find ("Player");
+		playerHealth = player.GetComponent<health> ();
 		distance = moveLength;
 		controller = this.GetComponent<CharacterController>();
 		enemy = this.gameObject;
@@ -37,7 +42,9 @@ public class EnemyMovement : MonoBehaviour {
 		flipSide();
 	}
 
-
+	void killPlayer () {
+		playerHealth.TakeDamage (damage);
+	}
 
 	bool playerIsinView() {
 			float posPlayerX = player.transform.position.x;
@@ -81,6 +88,14 @@ public class EnemyMovement : MonoBehaviour {
 
 
 	void move() {
+		if (seePlayer) {
+						if (nextSchuss % 100 == 0) {
+								killPlayer ();
+								
+						}
+			++nextSchuss;
+		}
+
 		float dirXOld = transform.position.x;
 
 		if(controller.isGrounded){
