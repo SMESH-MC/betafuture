@@ -2,7 +2,7 @@
 using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 
-public class EnemyMovement : MonoBehaviour {
+public class EnemyAI : MonoBehaviour {
 
 	private CharacterController controller;
 	private GameObject enemy;
@@ -40,6 +40,9 @@ public class EnemyMovement : MonoBehaviour {
 		seePlayer = playerIsinView ();
 		move ();
 		flipSide();
+		if(seePlayer) {
+			shootAtPlayer();
+		}
 	}
 
 	void killPlayer () {
@@ -82,7 +85,11 @@ public class EnemyMovement : MonoBehaviour {
 			}
 		return false;
 	}
-	                    
+
+	void shootAtPlayer() {
+		ShootingEnemy shootScript = gameObject.GetComponentInChildren<ShootingEnemy>();
+		shootScript.shoot();
+	}           
 
 
 
