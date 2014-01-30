@@ -41,12 +41,8 @@ public class EnemyAI : MonoBehaviour {
 		move ();
 		flipSide();
 		if(seePlayer) {
-			shootAtPlayer();
+		//	shootAtPlayer();
 		}
-	}
-
-	void killPlayer () {
-		playerHealth.TakeDamage (damage);
 	}
 
 	bool playerIsinView() {
@@ -97,7 +93,8 @@ public class EnemyAI : MonoBehaviour {
 	void move() {
 		if (seePlayer) {
 						if (nextSchuss % 100 == 0) {
-								killPlayer ();
+			shootAtPlayer();
+							
 								
 						}
 			++nextSchuss;
