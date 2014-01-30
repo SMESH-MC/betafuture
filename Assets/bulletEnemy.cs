@@ -5,7 +5,7 @@ public class bulletEnemy : MonoBehaviour {
 		
 		public float damage = 100f;
 		private GameObject target;
-		private enemyHealth targetHealth;	
+		private health targetHealth;	
 		// Update is called once per frame
 		void Update () {
 			
@@ -18,13 +18,13 @@ public class bulletEnemy : MonoBehaviour {
 				Debug.Log("Player hit");
 				doDamage(target);
 			} else {
-				Debug.Log("NOENEMY");
+				Debug.Log("NOPLAYER");
 			}
 			Destroy(gameObject);
 		}
 		
 		void doDamage (GameObject target) {
-			targetHealth = target.GetComponent<enemyHealth>();
+			targetHealth = target.GetComponent<health>();
 			targetHealth.TakeDamage(damage);
 			float tHealth = targetHealth.currentHealth;
 			Debug.Log(tHealth.ToString());
