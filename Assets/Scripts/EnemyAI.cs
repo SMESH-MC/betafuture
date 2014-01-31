@@ -15,7 +15,9 @@ public class EnemyAI : MonoBehaviour {
 
 	private health playerHealth;	
 	public float damage = 10;
+	public int schussrat = 30;
 	private int nextSchuss = 0;
+	private float oldSpeed;
 
 	//public float debugEnemyX = 0;
 	//public float debugPlayerX = 0;
@@ -83,8 +85,11 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void shootAtPlayer() {
-		ShootingEnemy shootScript = gameObject.GetComponentInChildren<ShootingEnemy>();
-		shootScript.shoot();
+		if ((nextSchuss %= schussrat) == 0) { 
+						ShootingEnemy shootScript = gameObject.GetComponentInChildren<ShootingEnemy> ();
+						shootScript.shoot ();
+				}
+		++nextSchuss;
 	}           
 
 
@@ -92,13 +97,15 @@ public class EnemyAI : MonoBehaviour {
 
 	void move() {
 		if (seePlayer) {
-						if (nextSchuss % 100 == 0) {
-			shootAtPlayer();
-							
-								
-						}
-			++nextSchuss;
+			oldSpeed = speed;
+			speed = 0.1f;
+			shootAtPlayer ();
+		} else {
+			if (speed == 0.1f) {
+				speed = oldSpeed;
+			}
 		}
+
 
 		float dirXOld = transform.position.x;
 
