@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour {
 	//public float debugIsInView = 0;
 
 	public float moveDirection = 1;
-	public float speed  = 6.0f;
+	public float speed  = 3.0f;
 	public float gravity = 9.81f;
 	public float moveLength = 25f;
 	public float distance = 5.0f;
@@ -83,8 +83,11 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void shootAtPlayer() {
+		if (nextSchuss % 50 == 0) {
 		ShootingEnemy shootScript = gameObject.GetComponentInChildren<ShootingEnemy>();
-		shootScript.shoot();
+		shootScript.shoot();	
+		}
+		++nextSchuss;
 	}           
 
 
@@ -92,12 +95,7 @@ public class EnemyAI : MonoBehaviour {
 
 	void move() {
 		if (seePlayer) {
-						if (nextSchuss % 100 == 0) {
 			shootAtPlayer();
-							
-								
-						}
-			++nextSchuss;
 		}
 
 		float dirXOld = transform.position.x;
@@ -121,6 +119,9 @@ public class EnemyAI : MonoBehaviour {
 		distance = distance - ((dirXOld - transform.position.x) * moveDirection);
 
 		if (distance <= 0) {
+			while (seePlayer) {
+				shootAtPlayer();
+			}
 			distance = moveLength;
 			moveDirection *= -1;
 		}
