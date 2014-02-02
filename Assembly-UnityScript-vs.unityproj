@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\LevelChanger.js" />
      <Compile Include="Assets\Scripts\MainMenu.js" />
      <Compile Include="Assets\Scripts\PlayerSteuerung.js" />
+     <Compile Include="Assets\Scripts\elevator.js" />
      <Compile Include="Assets\Scripts\levelmenu.js" />
      <Compile Include="Assets\Scripts\optionsmenu.js" />
      <Compile Include="Assets\Scripts\pausemenu.js" />
