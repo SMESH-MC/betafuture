@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\waffe.cs" />
      <Compile Include="Assets\ShootingEnemy.cs" />
      <Compile Include="Assets\bulletEnemy.cs" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\GUI\SCP5\ReadMe.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
