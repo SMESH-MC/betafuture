@@ -23,14 +23,12 @@ var highFPS = 50;
  
 var start:GameObject;
  
-var url = "unity.html";
- 
 var statColor:Color = Color.yellow;
  
 var credits:String[]=[
-	"A Fugu Games Production",
-	"Programming by Phil Chu",
-	"Fugu logo by Shane Nakamura Designs",
+	"GameDesign and Implementation:",
+	"Enrage",
+	"Optionsmenu by FUGU Games",
 	"Copyright (c) 2007-2008 Technicat, LLC"] ;
 var crediticons:Texture[];
  
@@ -256,9 +254,7 @@ function PauseMenu() {
 	if (GUILayout.Button ("Credits")) {
 		currentPage = Page.Credits;
 	}
-	if (IsBrowser() && !IsBeginning() && GUILayout.Button ("Restart")) {
-		Application.OpenURL(url);
-	}
+
 	if (GUILayout.Button ("Back to MainMenu")) {
 		Application.LoadLevel(0);
 	}
