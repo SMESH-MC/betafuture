@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour {
 	private Vector3 dir  = Vector3.zero;
 
 
-	public float speed  = 6.0f;
-	public float gravity = 9.81f;
-	public float jumpPower = 5.0f;
+	public float speed  = 10.0f;
+	public float gravity = 1.00f;
+	public float jumpPower = 20.0f;
 	public bool flipped = false;
 
 	void Awake () {
