@@ -22,8 +22,8 @@ GUI.skin = mySkin;
 	
 	if (GUI.Button (Rect(Screen.width/2-150,Screen.height/2+50,300,30),"Level 2")){
 	
-	//Application.LoadLevel("level2");
-	print ("Auskommentieren #2");
+	Application.LoadLevel("level3");
+	
 	
 	}
 	
