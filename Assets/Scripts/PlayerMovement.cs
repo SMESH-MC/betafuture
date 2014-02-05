@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float speed  = 10.0f;
 	public float gravity = 1.00f;
-	public float jumpPower = 20.0f;
+	public float jumpPower = 18.0f;
 	public bool flipped = false;
 
 	void Awake () {
