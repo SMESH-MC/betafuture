@@ -2,6 +2,6 @@
 
 function OnControllerColliderHit(hit : ControllerColliderHit){
 	if (hit.gameObject.tag == "Finish"){
-		Application.LoadLevel("levels");
+		Application.LoadLevel("level2");
 	}
 }
