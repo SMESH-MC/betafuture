@@ -39,12 +39,14 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void Update () {
-		seePlayer = playerIsinView ();
+		player = GameObject.Find ("Player");
+		if (player != null) {
+						seePlayer = playerIsinView ();
+				} else {
+						seePlayer = false;
+				}
 		move ();
 		flipSide();
-		if(seePlayer) {
-		//	shootAtPlayer();
-		}
 	}
 
 	bool playerIsinView() {
